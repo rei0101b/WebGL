@@ -53,3 +53,12 @@ function create_program(vs, fs) {
     alert(gl.getProgramInfo(program));
   }
 }
+
+function create_vbo(data) {
+  var vbo = gl.createBuffer();
+
+  gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(data), gl.STATUS_DRAW);
+  gl.bindBuffer(gl.ARRAY_BUFFER, null);
+  return vbo;
+}
